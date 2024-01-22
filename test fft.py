@@ -2,6 +2,8 @@
 Life is what you make of it!
 
 Written by @dinho_itt(ig_id)
+
+파형의 시간 도메인에서의 스펙트럼과 스펙토그렘, fft를 거쳐 주파수 도메인에서 그래프 생성, 필터링된  그래프 생성, 필터링된 음원 및 그래프 생성
 """
 import numpy as np
 import matplotlib.pylab as plt
@@ -29,7 +31,7 @@ max_val = np.max(np.abs(data_float))
 # 신호를 최대 절대값으로 나누어 정규화
 norm_data = data_float / max_val
 
-# 시간 축을 생성합니다.
+# 시간 축을 생성
 time = np.arange(0, len(data)) / fs
 
 # 전체 플롯을 위한 Figure 생성
