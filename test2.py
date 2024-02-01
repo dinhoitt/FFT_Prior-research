@@ -98,7 +98,7 @@ def get_octave_width(notch_freq):
         except ValueError:
             print("숫자를 입력해야 합니다. 다시 시도하세요.")
 
-"""
+
 def processFrequencyBand(fft_data, frequencies, low, high, factor):
     # 주파수 범위에 해당하는 인덱스 찾기
     idx_band = np.where((frequencies >= low) & (frequencies <= high))
@@ -113,8 +113,8 @@ fft_data_half = fft_data[:len(fft_data)//2]
 frequencies = np.linspace(0, fs, len(fft_data_half))
 
 # processFrequencyBand 함수 적용
-processFrequencyBand(fft_data_half, frequencies, 1000, 2000, 3)
-"""
+processFrequencyBand(fft_data_half, frequencies, 1500, 2500, 5)
+
 # 노치 필터 적용
 notch_freq = int(input("노치 필터링할 중심 주파수를 입력하세요 (예: 880): "))
 notch_width = get_octave_width(notch_freq)
@@ -174,6 +174,6 @@ filtered_data_unnormalized = filtered_data_real * max_val
 filtered_data_int16 = np.int16(filtered_data_unnormalized)
 
 # 필터링된 신호를 WAV 파일로 저장
-wavfile.write(r"C:\Users\박태수\Desktop\testfft_filtered_without_equalizing.wav", fs, filtered_data_int16)
+wavfile.write(r"C:\Users\박태수\Desktop\testfft_filtered_with_equalizing.wav", fs, filtered_data_int16)
 
 
